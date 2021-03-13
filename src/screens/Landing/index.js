@@ -6,7 +6,8 @@ const LandingScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text>Public Landing Screen</Text>
-      <View style={styles.signInButton}>
+
+      <View style={styles.button}>
         <Button
           title="Go to Sign In"
           color="coral"
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  signInButton: {
+  button: {
     marginTop: 10,
   },
 });

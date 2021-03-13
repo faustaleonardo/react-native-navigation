@@ -11,10 +11,12 @@ const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  flex: 1,
-  backgroundColor: '#fff',
-  justifyContent: 'center',
-  alignItems: 'center',
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default HomeScreen;

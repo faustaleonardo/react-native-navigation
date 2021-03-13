@@ -1,21 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import HomeScreen from './screens/Home';
+import LandingScreen from './screens/Landing';
+
+const RootStack = createStackNavigator();
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Hello React Native!</Text>
-    </View>
+    <NavigationContainer>
+      <RootStack.Navigator>
+        <RootStack.Screen
+          name="Landing"
+          component={LandingScreen}
+        ></RootStack.Screen>
+        <RootStack.Screen name="Home" component={HomeScreen}></RootStack.Screen>
+      </RootStack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default App;

@@ -2,10 +2,10 @@ import React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
 
-const ForgetPassword = () => {
+const PasswordForget = () => {
   return (
     <View style={styles.container}>
-      <Text>Public Forget Password</Text>
+      <Text>Password Forget Screen</Text>
     </View>
   );
 };
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ForgetPassword;
+export default PasswordForget;

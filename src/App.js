@@ -1,15 +1,36 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {
+  NavigationContainer,
+  getFocusedRouteNameFromRoute,
+  DrawerActions,
+} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Button } from 'react-native';
 
 import HomeScreen from './screens/Home';
 import LandingScreen from './screens/Landing';
 import SignInScreen from './screens/SignIn';
 import SignUpScreen from './screens/SignUp';
-import ForgetPasswordScreen from './screens/ForgetPassword';
+import PasswordForgetScreen from './screens/PasswordForget';
+import AccountScreen from './screens/Account';
+import PasswordChangeScreen from './screens/PasswordChange';
+import AdminScreen from './screens/Admin';
 
 const RootStack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const HomeDrawer = () => {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Account" component={AccountScreen} />
+      <Drawer.Screen name="Password Change" component={PasswordChangeScreen} />
+      <Drawer.Screen name="Password Forget" component={PasswordForgetScreen} />
+      <Drawer.Screen name="Admin" component={AdminScreen} />
+    </Drawer.Navigator>
+  );
+};
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
@@ -32,8 +53,18 @@ const App = () => {
         {isAuthenticated ? (
           <RootStack.Screen
             name="Home"
-            component={HomeScreen}
-            options={{
+            component={HomeDrawer}
+            options={({ route, navigation }) => ({
+              // change the header title based on active route
+              headerTitle: getFocusedRouteNameFromRoute(route),
+              headerLeft: () => (
+                <Button
+                  title="Menu"
+                  onPress={() =>
+                    navigation.dispatch(DrawerActions.toggleDrawer())
+                  }
+                />
+              ),
               headerRight: () => (
                 <Button
                   color="coral"
@@ -41,7 +72,7 @@ const App = () => {
                   onPress={handleSignOut}
                 />
               ),
-            }}
+            })}
           />
         ) : (
           <>
@@ -60,7 +91,7 @@ const App = () => {
             </RootStack.Screen>
             <RootStack.Screen
               name="Forget Password"
-              component={ForgetPasswordScreen}
+              component={PasswordForgetScreen}
             />
           </>
         )}

@@ -7,7 +7,7 @@ const SignUpScreen = ({ onSignUp }) => {
     <View style={styles.container}>
       <Text>Public Sign Up</Text>
       <View style={styles.button}>
-        <Button color="coral" title="Sign Up" onPress={onSignUp} />
+        <Button title="Sign Up" onPress={onSignUp} />
       </View>
     </View>
   );

@@ -78,11 +78,7 @@ const App = () => {
                 />
               ),
               headerRight: () => (
-                <Button
-                  color="coral"
-                  title="Sign Out"
-                  onPress={handleSignOut}
-                />
+                <Button title="Sign Out" onPress={handleSignOut} />
               ),
             })}
           />

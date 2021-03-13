@@ -7,7 +7,7 @@ const SignInScreen = ({ onSignIn, navigation }) => {
     <View style={styles.container}>
       <Text>Public Sign In Screen</Text>
       <View style={styles.button}>
-        <Button title="Sign In" color="coral" onPress={onSignIn} />
+        <Button title="Sign In" onPress={onSignIn} />
       </View>
 
       <Text>OR</Text>
@@ -15,7 +15,6 @@ const SignInScreen = ({ onSignIn, navigation }) => {
       <View style={styles.button}>
         <Button
           title="Go to Sign Up"
-          color="coral"
           onPress={() => navigation.navigate('Sign Up')}
         />
       </View>
@@ -23,7 +22,6 @@ const SignInScreen = ({ onSignIn, navigation }) => {
       <View style={styles.button}>
         <Button
           title="Go to Forget Password"
-          color="coral"
           onPress={() => navigation.navigate('Forget Password')}
         />
       </View>
